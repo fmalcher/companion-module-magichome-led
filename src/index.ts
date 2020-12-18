@@ -2,6 +2,7 @@ import InstanceSkel = require('../../../instance_skel');
 import { CompanionConfigField, CompanionSystem } from '../../../instance_skel_types';
 import { GetActionsList } from './actions';
 import { GetConfigFields, MHConfig } from './config';
+import { GetPresetsList } from './presets';
 import { MagicHomeControl } from './types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { Control } = require('magic-home');
@@ -39,6 +40,7 @@ class MagichomeLedInstance extends InstanceSkel<MHConfig> {
    */
   private updateCompanionBits(): void {
     this.setActions(GetActionsList(this, this.conn));
+    this.setPresetDefinitions(GetPresetsList(this));
   }
 
   /**
